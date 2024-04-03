@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,7 +17,6 @@ spec:
       containers:
         - name: vprodb
           image: alecngo/vprofiledb:latest
-
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
@@ -38,7 +36,6 @@ spec:
           awsElasticBlockStore:
             volumeID: vol-0f8ef66a31a669f72
             fsType: ext4
-      
       initContainers:
         - name: busybox
           image: busybox:latest
@@ -46,5 +43,3 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
-
-
